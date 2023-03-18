@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch C++17",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "args": [
+        "-g",
+        "-Wall",
+        "-std=c++17",
+        "${fileDirname}\\*.cpp",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "stopAtEntry": true,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "preLaunchTask": "build",
+      "setupCommands": [
+        {
+          "description": "Set language version to C++17",
+          "text": "-exec-arguments -std=c++17",
+          "ignoreFailures": false
+        }
+      ],
+      "osx": {
+        "MIMode": "lldb"
+      }
+    }
+  ]
+}
