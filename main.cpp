@@ -7,55 +7,63 @@ using namespace std;
 
 
 
-int main(){
-    int num = 5;
-
-    for (int i = 0; i < num;i++)
-    {
-        for (int j = 0; j < num; j++)
-           { 
-            if(num == 5 && i < (num/2)+1 || j >= (num/2) )
-               { if(i == 2 && j== num-1)
-                    cout << "X";
-                else if (i == 1 && j >=(num/2)+1)
-                    cout << "X";
-                else if (i == 0 && j >=(num/2))
-                    cout << "X";
-                else
-                    cout << "0";}
-            else if ( num ==3 && i ==0 && j==num-1)
-                cout << "X";
-            else
-                cout << "0";
-           }
-        cout << endl;
-    }
-
-        return 0;
-}
-
 // int main(){
+//     int num = 5;
 
-//     for (int i = 0; i < 7;i++)
+//     for (int i = 0; i < num;i++)
 //     {
-//         for (int j = 0; j < 7;j++)
-//         {
-//             if(i%3 == 0 && j %3 ==0 || j ==3 || j ==6 )
-//                  cout << "X";
-//                  if(i ==3 and !j==3)
+//         for (int j = 0; j < num; j++)
+//            { 
+//             if(num == 5 && i < (num/2)+1 || j >= (num/2) )
+//                { if(i == 2 && j== num-1)
 //                     cout << "X";
- 
+//                 else if (i == 1 && j >=(num/2)+1)
+//                     cout << "X";
+//                 else if (i == 0 && j >=(num/2))
+//                     cout << "X";
 //                 else
-//                     cout << "0";
-
+//                     cout << "0";}
+//             else if ( num ==3 && i ==0 && j==num-1)
+//                 cout << "X";
 //             else
 //                 cout << "0";
-//         }
+//            }
 //         cout << endl;
 //     }
 
 //         return 0;
 // }
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 7;
+
+    for (int i = 0; i < num; i++) {
+        for (int j = 0; j < num; j++) {
+            if (i % 3 == 0 && j % 3 == 0 || j == (num/2)  || j == num-1) {
+                if (i == (num/2) && j == (num/2) ) {
+                    cout << "0";
+                } else {
+                    cout << "X";
+                }
+            } else if (i == (num/2) ) {
+                if (j != (num/2) ) {
+                    cout << "X";
+                } else {
+                    cout << "0";
+                }
+            } else {
+                cout << "0";
+            }
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
 
 // void letterCounter(string str){
 // // declaring a vector to store the values
