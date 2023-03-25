@@ -3,7 +3,118 @@
 #include <typeinfo>
 #include <iomanip>
 #include <cctype>
+#include<algorithm>
+#include<math.h>
 using namespace std;
+
+
+///////////////////////////////////////////////
+
+// int counter( int n){
+//     if(n==5)
+//         return n ;
+//     cout<<n<<endl;
+//     return counter(n++);
+//     }
+// int main ( )
+// {
+
+// cout<<counter(1)<<endl;
+ 
+//   return 0;
+// }
+
+/////////////////////////////////////////////
+// // 1
+// // 2+ 1
+// // 3 + 3
+// // 4 + 6
+// // 5 + 10
+// // main
+// // stack
+// int summantion( int n){
+//     if(n==1)
+//         return 1 ;
+//     return n + summantion(n--);
+//     }
+// int main ( )
+// {
+
+// cout<<summantion(5)<<endl;
+ 
+//   return 0;
+// }
+/////////////////////////////////////////////
+// 2 + 1
+// 2 + 1
+// 2 + 2
+// 2 * (3)
+// main
+
+// int power( int n, int e){
+//     if(e==0)
+//         return 1 ;
+
+//     return (n * power(n,e-1));
+//     }
+// int main ( )
+// {
+
+// cout<<power(2,4)<<endl;
+ 
+//   return 0;
+// }
+
+//////////////////////////////////////////////////
+// n[0]
+// n[1]
+// n[2]
+// n[3]
+// n[4]
+// main
+
+// string reverseds( string n, size_t s ){
+    
+// (s ==0)?cout<<n[0]<<endl: cout<<(n[s])<<endl;
+
+//      return reverseds(n, s-1);
+//     }
+    
+// int main ( )
+// {
+    
+// string str = "Hello";
+
+// cout<<reverseds(str,str.length()-1)<<endl;
+ 
+//   return 0;
+// }
+
+// ///////////////////////////////////////////////////
+
+int calSum(int n){
+    if (n ==1) {
+        cout<<n<<endl;
+        return n;}
+    int  result = n + calSum(n-1);
+    
+    cout<<result<<endl;
+    
+    return result;
+    }
+
+int main(){
+    
+    int n =5 ;
+    calSum(n);
+    
+    return 0 ;}
+
+////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 
