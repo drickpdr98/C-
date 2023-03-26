@@ -1,119 +1,105 @@
 #include <iostream>
 #include <vector>
-#include <typeinfo>
-#include <iomanip>
 #include <cctype>
-#include<algorithm>
-#include<math.h>
 using namespace std;
 
 
-///////////////////////////////////////////////
-
-// int counter( int n){
-//     if(n==5)
-//         return n ;
-//     cout<<n<<endl;
-//     return counter(n++);
-//     }
-// int main ( )
-// {
-
-// cout<<counter(1)<<endl;
- 
-//   return 0;
-// }
-
-/////////////////////////////////////////////
-// // 1
-// // 2+ 1
-// // 3 + 3
-// // 4 + 6
-// // 5 + 10
-// // main
-// // stack
-// int summantion( int n){
-//     if(n==1)
-//         return 1 ;
-//     return n + summantion(n--);
-//     }
-// int main ( )
-// {
-
-// cout<<summantion(5)<<endl;
- 
-//   return 0;
-// }
-/////////////////////////////////////////////
-// 2 + 1
-// 2 + 1
-// 2 + 2
-// 2 * (3)
-// main
-
-// int power( int n, int e){
-//     if(e==0)
-//         return 1 ;
-
-//     return (n * power(n,e-1));
-//     }
-// int main ( )
-// {
-
-// cout<<power(2,4)<<endl;
- 
-//   return 0;
-// }
-
-//////////////////////////////////////////////////
-// n[0]
-// n[1]
-// n[2]
-// n[3]
-// n[4]
-// main
-
-// string reverseds( string n, size_t s ){
+void reverse( string n, size_t s ){
     
-// (s ==0)?cout<<n[0]<<endl: cout<<(n[s])<<endl;
+    if(s==0){
+        cout<<n[0]<<endl;
+        return;
+        }
 
-//      return reverseds(n, s-1);
-//     }
-    
-// int main ( )
-// {
-    
-// string str = "Hello";
+    cout<<(n[s])<<endl;
 
-// cout<<reverseds(str,str.length()-1)<<endl;
- 
-//   return 0;
-// }
-
-// ///////////////////////////////////////////////////
-
-int calSum(int n){
-    if (n ==1) {
-        cout<<n<<endl;
-        return n;}
-    int  result = n + calSum(n-1);
-    
-    cout<<result<<endl;
-    
-    return result;
+    reverse(n, s-1);
     }
-
-int main(){
     
-    int n =5 ;
-    calSum(n);
+int main ( )
+{
     
-    return 0 ;}
+string str = "Hello";
 
-////////////////////////////////////////////////////////////////
+reverse(str,str.length()-1);
+ 
+  return 0;
+}
+
+// int sum( int n){
+//     if(n==0)
+//         return 0 ;
+//     return n + sum(n-1);
+//     }
+
+// int main ( )
+// {
+
+// cout<<sum(5)<<endl;
+ 
+//   return 0;
+// }
+
+// void countdown(int n)
+// {
+//     // up -- output before function call
+//     // down -- output after function call
+//     if(n == 0 )
+//            return ;
+//     countdown(n - 1);
+//     cout << n << endl;
+
+// }
+
+// int main(){
+//     countdown(5);
+//     return 0;
+// }
+
+// void countLetters(const string input) {
+//     // Create a vector of size 26 (one for each letter) and initialize all counts to 0
+//     vector<int> counts(26, 0);
+
+//     // Iterate through each character in the input string
+//     for (char c : input) {
+//         // Check if the character is an alphabetical letter (A-Z or a-z)
+//         if (isalpha(c)) {
+//             // Convert the character to uppercase 
+//             c = toupper(c);
+//             // Increment the count 
+//             counts[c - 'A']++;
+//         }
+//     }
+
+//     for (int i = 0; i < 26; i++) {
+//         // Check if the count for the current letter is greater than 0
+//         if (counts[i] > 0) {
+//             // Calculate the uppercase letter corresponding to the current index
+//             char letter = 'A' + i;
+//             // Display the count for the current letter both uppercase and lowercase 
+//             cout << "Number of " << letter << "/" << static_cast<char>(tolower(letter)) << "   " << counts[i] << endl;
+//         }
+//     }
+// }
+
+// int main() {
+//     string str;
+
+//     while (true) {
+//         cout << "Enter a string to analyze (Enter 'END' to end) > " << endl;
+//         getline(cin, str);21`
 
 
+//         // Check if the user entered "END"; if so, break the loop
+//         if (str == "END") {
+//             break;
+//         }
 
+//         countLetters(str);
+//     }
+
+//     return 0;
+// }
 
 
 
@@ -145,35 +131,35 @@ int main(){
 //         return 0;
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int main() {
-    int num = 7;
+// int main() {
+//     int num = 7;
 
-    for (int i = 0; i < num; i++) {
-        for (int j = 0; j < num; j++) {
-            if (i % 3 == 0 && j % 3 == 0 || j == (num/2)  || j == num-1) {
-                if (i == (num/2) && j == (num/2) ) {
-                    cout << "0";
-                } else {
-                    cout << "X";
-                }
-            } else if (i == (num/2) ) {
-                if (j != (num/2) ) {
-                    cout << "X";
-                } else {
-                    cout << "0";
-                }
-            } else {
-                cout << "0";
-            }
-        }
-        cout << endl;
-    }
+//     for (int i = 0; i < num; i++) {
+//         for (int j = 0; j < num; j++) {
+//             if (i % 3 == 0 && j % 3 == 0 || j == (num/2)  || j == num-1) {
+//                 if (i == (num/2) && j == (num/2) ) {
+//                     cout << "0";
+//                 } else {
+//                     cout << "X";
+//                 }
+//             } else if (i == (num/2) ) {
+//                 if (j != (num/2) ) {
+//                     cout << "X";
+//                 } else {
+//                     cout << "0";
+//                 }
+//             } else {
+//                 cout << "0";
+//             }
+//         }
+//         cout << endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 // void letterCounter(string str){
