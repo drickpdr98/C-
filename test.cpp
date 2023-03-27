@@ -1,12 +1,11 @@
 #include <iostream>
-#include <math.h>
 #include <iomanip>
 
 using namespace std;
 
 void certificateOfDeposit(float amount, int years, float interestRate, int compoundTerm, int totalTerms)
 {
-  // using this formula to calculate newPrincipal because if it divides by 1 it becomes 0
+  // using this formula to calculate newPrincipal interests because if it divides by 1 it becomes 0
   float newInterest = (amount*interestRate)/compoundTerm;
 
   // calculates the new principal
@@ -31,32 +30,55 @@ void certificateOfDeposit(float amount, int years, float interestRate, int compo
 // calling the function again until the term meets it length
     certificateOfDeposit(newPrincipal,years, interestRate, compoundTerm,(totalTerms +1));
 }
-int main(){
+int main() {
+  try {
+      cout << "Please enter the amount you are investing: " << endl;
+      float principal;
+      cin >> principal;
+      if (cin.fail()) 
+      {
+          throw "Invalid input for principal. Please enter a numeric value.";
+      }
 
-  cout << "Please enter the amount you are investing: " << endl;
-  float principal;
-  cin >> principal;
+      cout << "Please enter the number of years you are investing: " << endl;
+      int years;
+      cin >> years;
+      if (cin.fail()) 
+      {
+          throw "Invalid input for years. Please enter a whole number.";
+      }
 
-  cout << "Please enter the amount of years you are investing to : " << endl;
-  int years;
-  cin >> years;
+      cout << "Please enter the interest rate: " << endl;
+      float interestRate;
+      cin >> interestRate;
+      if (cin.fail()) 
+      {
+          throw "Invalid input for interest rate. Please enter a numeric value.";
+      }
 
-  cout << "Please enter the interest rate  : " << endl;
-  float interestRate;
-  cin >> interestRate;
+      cout << "Please enter the compounding term (monthly(12), quarterly(4), semi-annually(2) or yearly(1)): " << endl;
+      int compoundTerm;
+      cin >> compoundTerm;
+      if (cin.fail()) 
+      {
+          throw "Invalid input for compounding term. Please enter a whole number.";
+      }
 
-  cout << "Please enter the term (monthly, quarterly, semi-annually or yearly): " << endl;
-  int compoundTerm;
-  cin >> compoundTerm;
+      int startTerm = 0;
 
-  
-  cout << "Term" << setw(5) 
-       << "Principal" << setw(15) 
-       << "Interest" << setw(5) 
-       << "New Principal" << endl;
+      cout << left << setw(6) << "Term"
+            << setw(16) << "Principal"
+            << setw(16) << "Interest"
+            << setw(16) << "New Principal" << endl;
 
-certificateOfDeposit(principal,years,interestRate,compoundTerm,0);
+      
+      certificateOfDeposit(principal, years, interestRate / 100, compoundTerm, startTerm);
 
-  return 0;
+  } catch (const char* error) {
+      cerr << "Error: " << error << endl;
+      return 1;
+  }
+
+    return 0;
 }
 
