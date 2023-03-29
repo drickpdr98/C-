@@ -82,3 +82,68 @@ int main() {
     return 0;
 }
 
+#include <iostream>
+#include<cctype>
+#include<typeinfo>
+
+using namespace std;
+
+void letterCounter(string str , char c)
+{
+
+  int counter = 0;
+
+  if(typeid(c)!=typeid(char))
+  {
+    throw invalid_argument("Input character is not of type char");
+  }
+
+  for (int i = 0; i < str.length();i++)
+  {
+    char ch =tolower(str[i]);
+
+    if (ch == c)
+    {
+      counter++;
+    }
+  }
+  cout<<"Number of "<<c<<"'s "<< counter << endl;
+  cout << endl;
+  cout << "Enter a character to search again > " << endl;
+  char newChr;
+  cin>>newChr;
+
+  letterCounter(str,newChr)
+  ;
+}
+int main()
+{
+  try
+  {
+    cout << "Enter a string > " << endl;
+    string str;
+    getline(cin,str);
+
+    if(str.empty()){
+      throw ("Input string is empty");
+    }
+
+    cout << "Enter a character > " << endl;
+    char chr;
+    cin >> chr;
+
+    if(typeid(chr)!=typeid(char))
+  {
+    throw ("Input character is not of type char");
+  }
+
+  letterCounter(str,chr);
+
+  }
+  catch(string &error)
+  {
+  cerr <<error<< endl;
+  }
+
+    return 0; 
+}
