@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iostream>
 #include <iomanip>
 #include <time.h>
 
@@ -24,11 +25,11 @@ int main()
   winNums(a, b, c, d, e, m);
 
   cout << a<<" "
-      << b << " "
-      << c<< " "
-      << d << " "
-      << e<<" "
-        << "mega: " << m << endl;
+       << b<<" "
+       << c<<" "
+       << d<<" "
+       << e<<" "
+       << "mega: "<< m << endl;
 
   return 0;
 }
