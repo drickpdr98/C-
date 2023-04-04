@@ -3,7 +3,7 @@
 #include <cctype>
 using namespace std;
 
-
+// homework
 void reverse( string n, size_t s ){
     
     if(s==0){
