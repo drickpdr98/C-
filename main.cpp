@@ -1,4 +1,5 @@
 #include <iostream>
+#include <strings>
 #include<map>
 #include <vector>
 #include <cctype>
