@@ -1,10 +1,77 @@
 #include <iostream>
+#include<time.h>
 
 using namespace std;
 ////////////////arrays//////////////////////////////////////////////////////
+const int SIZE = 20;
 
 int main()
-{}
+{
+  const int row = 4;
+  const int column = 5;
+
+  int arr[row][column] = {};
+
+  int count = 10;
+
+  for (int i = 0; i < row;i++)
+  {
+    for (int j = 0; j < column; j++)
+    {
+      arr[i][j] = count ++;
+      cout << arr[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  cout << endl; 
+
+  return 0; 
+}
+
+// void linearSearch(int arr[],int value)
+// {
+//   for (int i = 0; i < SIZE;i++)
+//   {
+//     if(arr[i]==value)
+//       cout<<"Index: " << i << endl;
+//   }
+// }
+
+
+//  int main()
+// {
+//   srand(time(NULL));
+
+//   cout << "Enter an integer: " << endl;
+//   int val;
+//   cin >> val;
+
+//   int arr[SIZE] = {};
+
+//   for (int i = 0; i < SIZE;i++)
+//   {
+//     arr[i] = rand() % SIZE+1;
+//     cout << arr[i] << " ";
+//   }
+//   cout << endl;
+
+//   linearSearch(arr,val);
+
+//   return 0;
+// }
+
+// int main()
+// {
+//   string arr[] = {"Dravin", "D", "Sookraj"};
+
+//   cout<<arr[1]<<endl;
+
+//   for(auto x: arr)
+//     cout << x << " ";
+
+//   return 0;
+// }
 
 ////////////////////////////////////////////////////////////////////////////
 
