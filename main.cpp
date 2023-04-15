@@ -1,340 +1,357 @@
 #include <iostream>
-#include <strings>
-#include<map>
-#include <vector>
-#include <cctype>
+
 using namespace std;
+////////////////arrays//////////////////////////////////////////////////////
 
-// homework
-void reverse( string n, size_t s ){
-    
-    if(s==0){
-        cout<<n[0]<<endl;
-        return;
-        }
+int main()
+{}
 
-    cout<<(n[s])<<endl;
+////////////////////////////////////////////////////////////////////////////
 
-    reverse(n, s-1);
-    }
-    
-int main ( )
-{
-    
-string str = "Hello";
 
-reverse(str,str.length()-1);
- 
-  return 0;
-}
-
-// int sum( int n){
-//     if(n==0)
-//         return 0 ;
-//     return n + sum(n-1);
-//     }
-
-// int main ( )
+// int average(int arr[], size_t size)
 // {
+//     double total = 0;
 
-// cout<<sum(5)<<endl;
- 
-//   return 0;
+//     for (int i = 0; i < size;i++)
+//         total += arr[i];
+
+//     return total / size;
 // }
-
-// void countdown(int n)
+//  int main()
 // {
-//     // up -- output before function call
-//     // down -- output after function call
-//     if(n == 0 )
-//            return ;
-//     countdown(n - 1);
-//     cout << n << endl;
+//     srand(time(NULL));
 
-// }
+//     const int SIZE = 10;
 
-// int main(){
-//     countdown(5);
-//     return 0;
-// }
-
-// void countLetters(const string input) {
-//     // Create a vector of size 26 (one for each letter) and initialize all counts to 0
-//     vector<int> counts(26, 0);
-
-//     // Iterate through each character in the input string
-//     for (char c : input) {
-//         // Check if the character is an alphabetical letter (A-Z or a-z)
-//         if (isalpha(c)) {
-//             // Convert the character to uppercase 
-//             c = toupper(c);
-//             // Increment the count 
-//             counts[c - 'A']++;
-//         }
-//     }
-
-//     for (int i = 0; i < 26; i++) {
-//         // Check if the count for the current letter is greater than 0
-//         if (counts[i] > 0) {
-//             // Calculate the uppercase letter corresponding to the current index
-//             char letter = 'A' + i;
-//             // Display the count for the current letter both uppercase and lowercase 
-//             cout << "Number of " << letter << "/" << static_cast<char>(tolower(letter)) << "   " << counts[i] << endl;
-//         }
-//     }
-// }
-
-// int main() {
-//     string str;
-
-//     while (true) {
-//         cout << "Enter a string to analyze (Enter 'END' to end) > " << endl;
-//         getline(cin, str);21`
+//     int array[SIZE] = {};
 
 
-//         // Check if the user entered "END"; if so, break the loop
-//         if (str == "END") {
-//             break;
-//         }
-
-//         countLetters(str);
-//     }
-
-//     return 0;
-// }
-
-
-
-
-// int main(){
-//     int num = 5;
-
-//     for (int i = 0; i < num;i++)
+//     for (int i = 0; i < SIZE;i++)
 //     {
-//         for (int j = 0; j < num; j++)
-//            { 
-//             if(num == 5 && i < (num/2)+1 || j >= (num/2) )
-//                { if(i == 2 && j== num-1)
-//                     cout << "X";
-//                 else if (i == 1 && j >=(num/2)+1)
-//                     cout << "X";
-//                 else if (i == 0 && j >=(num/2))
-//                     cout << "X";
-//                 else
-//                     cout << "0";}
-//             else if ( num ==3 && i ==0 && j==num-1)
-//                 cout << "X";
-//             else
-//                 cout << "0";
-//            }
-//         cout << endl;
+//         array[i] = rand() % 20;
 //     }
+
+//     cout << average(array, SIZE) << endl;
+
+//     return 0;
+// }
+
+
+////////////////////////////////////////////////////////////////////////////
+
+// void linearSearch(int arr[], size_t size, int value)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         if(arr[i]==value)
+//             cout << i << endl;
+//     }
+// }
+// int main()
+// {
+//     srand(time(NULL));
+
+//     const int SIZE = 20;
+
+//     int array[SIZE] = {};
+
+
+//     for (int i = 0; i < SIZE;i++)
+//     {
+//         array[i] = rand() % 20;
+//     }
+
+//     linearSearch(array, SIZE, 13);
+
+//     return 0;
+// }
+
+///////////////////////////////////////////////////////////////////////////////
+
+// int main()
+// {
+//     int const SIZE = 26;
+
+//     char array[SIZE] = {};
+
+//     for (int i = 0; i < SIZE; i++)
+//     {
+//         array[i] = 65+i;
+//     }
+
+//     for( char x: array)
+//         cout << x << " ";
 
 //         return 0;
 // }
 
-// #include <iostream>
-// using namespace std;
+///////////////////////////////////////////////////////////////////////////////
+// int main()
+// {
+//     const int SIZE = 25;
+//     int arr[SIZE] = {};
 
-// int main() {
-//     int num = 7;
-
-//     for (int i = 0; i < num; i++) {
-//         for (int j = 0; j < num; j++) {
-//             if (i % 3 == 0 && j % 3 == 0 || j == (num/2)  || j == num-1) {
-//                 if (i == (num/2) && j == (num/2) ) {
-//                     cout << "0";
-//                 } else {
-//                     cout << "X";
-//                 }
-//             } else if (i == (num/2) ) {
-//                 if (j != (num/2) ) {
-//                     cout << "X";
-//                 } else {
-//                     cout << "0";
-//                 }
-//             } else {
-//                 cout << "0";
-//             }
+//     int j = 0; 
+//     for (int i = 2; i < 50 && j< SIZE; i++) { 
+//         if (i % 2 == 0) {
+//             arr[j] = i; 
+//             j++; 
 //         }
-//         cout << endl;
 //     }
+
+//     for (auto x : arr)
+//         cout << x << " ";
 
 //     return 0;
 // }
 
 
-// void letterCounter(string str){
-// // declaring a vector to store the values
-//     vector <char> letters;
 
-// // looping over the string 
-//     for (char i = 0; i < str.length();i++){
-//         if (i == " " )
-//             return;
-//         else
-//             letters.push_back(str[i]);
-//     }
+// int main()
+// {
+//     string names[] = {"John", "William", "Henry"};
+//     cout << names[1]<<endl;
 
-// // printing out the elements from the vector
-//     for (char j = 0; j < letters.size();j++){
-//         cout << letters[j];
-//     }
-// }
-
-// int main(){
-//     letterCounter("Hello World");
+//     for(auto i: names)
+//         cout << i << " ";
 //     return 0;
+
+// }
+///////////////////////////////////////////////////////////////////////////////
+
+// // new stock value changes every year
+// double stockValueInNyears(double &stock1, double &stock2, int &numberOfYears)
+// {
+//     const double AMAZON = 4.0;
+//     const double GOOGLE = 10.0;
+//     stock1 = stock1 + (stock1 * (AMAZON / 100));
+//     stock2= stock2 + (stock2 * (GOOGLE / 100));
+
+//     // base case
+//     if (stock1 == stock2)
+//     {
+//         return numberOfYears;
+//     }
+    
+// //    recursive case
+//     numberOfYears++;
+//     return stockValueInNyears(stock1, stock2, numberOfYears);
+    
 // }
 
-// void mulitplicationOfNumber(int num){
+// int main()
+// {
+//     // starting portfolio
+//    double AmazonStocks100 = 250.0;
+//    double GoogleStocks120 = 125.0;
+//    int years = 0;
 
-//     for (int i = 1; i <=num;i++){
-//         cout << i << " * "<< num<<" = "<< (i * num) << endl;
+//    stockValueInNyears(AmazonStocks100, GoogleStocks120, years);
+//    cout << AmazonStocks100 << " " << GoogleStocks120 << " " << years << endl;
+
+//    return 0;
+// }
+
+// // Function to rolls to return a random number
+// int roll(int sides) {
+//     return rand() % (sides-0 +1);
+// }
+
+// // Overload the function to roll multiple dice with the given number of sides and rolls
+// int roll(int sides, int rolls) {
+//     int total = 0;
+//     for (int i = 0; i < rolls; i++) {
+//     // iterate and add the sides to the total
+//         total += roll(sides);
 //     }
+//     return total;
 // }
 
 // int main() {
-
-// //     cout << "Please enter a number: " << endl;
-// //     int number;
-// //     cin >> number;
-
-// //     mulitplicationOfNumber(number);
-
-// //     return 0;
-// // }
-
-
-
-// // void sieveOfEratosthenes(int num);
-
-// // int main(){
-
-// //     cout << "Enter an integer value: " << endl;
-// //     int num;
-// //     cin >> num;
-
-// //     if(cin.fail() || typeid(num)==typeid(float))
-// //     {
-// //         cout << "Enter a valid integer." << endl;
-// //         return 0;
-// //     }
-
-// //     sieveOfEratosthenes(num);
-
-// //     return 0;
-// // }
-
-
-// // void sieveOfEratosthenes(int num)
-// // {
-
-// //     // using a vector to fill it with true
-// //     vector <int> nums(num, true);
-
-// //     //  empty vector to store the prime numbers
-// //     vector <int> isPrime;
-
-// //     //  o and 1 are not prime numbers;
-// //     nums[0] = false;
-// //     nums[1] = false;
+//     srand(time(NULL));
     
+//     cout << "6-sided: " << roll(6) << endl;
+//     cout << "12-sided: " << roll(12) << endl;
+//     cout << "20-sided: " << roll(20) << endl;
+//     cout<<endl;
+//     cout << "3d7: " << roll(7, 3) << endl;
+//     cout << "2d8: " << roll(8, 2) << endl;
+//     cout << "4d5: " << roll(5, 4) << endl;
 
-// //     //  starting at 2 since 0 and 1 is not prime
-// //     for (int i = 2; i < nums.size(); i++)
+//     return 0;
+// }
+
+
+
+
+
+// // #include <iostream>
+
+// // using namespace std;
+
+// // // function that passes the array by reference 
+// // // function uses the search sort algorithm
+// // void maxNumbers(int (&array)[3]) 
+// // {
+// //     for (int i = 0; i < 2; i++) 
 // //     {
-// //         if(nums[i])
+// //         for (int j = i+1; j < 3; j++) 
 // //         {
-// //             isPrime.push_back(i);
-
-// //             for (int j = i * i; j < nums.size(); j+=i)
+// //             if (array[i] < array[j]) 
 // //             {
-// //                 nums[j] = false;
+// //               // swapping the value
+// //               int temp = array[i];
+// //               array[i] = array[j];
+// //               array[j] = temp;
 // //             }
 // //         }
 // //     }
-// //     cout << "Prime numbers from 1 to 100 inclusive: " << endl;
+// // }
 
-// //     for (int i = 0; i < isPrime.size();i++)
-// //     {
-// //         cout << isPrime[i] << " ";
+// // int main() {
+// //   // declaring the array and the number of elements also can use []
+// //     int arr[3];
+
+// //     // pushing the array elements from the console
+// //     cout << "Enter three different integers: ";
+// //     for (int i = 0; i < 3; i++) {
+// //         cin >> arr[i];
+// //     }
+// //     maxNumbers(arr);
+
+// //     // cout the sorted array
+// //     for (int i = 0; i < 3; i++) {
+// //         cout << arr[i] << " ";
 // //     }
 
-// // }
-
-// // int multiply(int num1, int num2){
-// //     return num1 * num2;
-// // }
-
-// // int main(){
-
-// //     cout << multiply(5, 6) << endl;
-
 // //     return 0;
 // // }
 
-// // bool isValid(int n )
+
+
+// // void winNums(int &num1, int &num2, int &num3, int &num4, int &num5, int &mega)
 // // {
-// //     return (n >= 1 && n <= 20);
+
+// //   num1 =  rand() %( (75 - 1 + 1)+1);
+// //   num2 =  rand() %( (75 - 1 + 1)+1);
+// //   num3 =  rand() %( (75 - 1 + 1)+1);
+// //   num4 =  rand() %( (75 - 1 + 1)+1);
+// //   num5 =  rand() %( (75 - 1 + 1)+1);
+// //   mega =  rand() %( (15 - 1 + 1)+1);
 // // }
 
-// // int main(){
+// // int main()
+// // {
+// //   srand(time(NULL));
 
-// //     cout << "Enter an integer from 1 to 20 inclusive: " << endl;
-// //     int num;
-// //     cin >> num; 
+// //   int a, b, c, d, e, m = 0;
 
-// //     if(isValid(num))
-// //         cout <<"The number is in range" << endl;
-// //     else 
-// //         cout <<"The number is not in range" << endl;
+// //   winNums(a, b, c, d, e, m);
 
+// //   cout << a<<" "
+// //        << b<<" "
+// //        << c<<" "
+// //        << d<<" "
+// //        << e<<" "
+// //        << "mega: "<< m << endl;
+
+// //   return 0;
+// // }
+
+// // // int main()
+// // // {
+
+// //   int x = 10;
+// //   int y = 5;
+// //   int z = x;
+
+// //   cout << x << " " << y << endl;
+
+// //   x = y;
+// //   y = z;
+
+// //   cout << x << " " << y << endl;
+
+// //   return 0;
+// // }
+
+// // void certificateOfDeposit(float amount, int years, float interestRate, int compoundTerm, int totalTerms)
+// // {
+// //   // using this formula to calculate newPrincipal interests because if it divides by 1 it becomes 0
+// //   float newInterest = (amount*interestRate)/compoundTerm;
+
+// //   // calculates the new principal
+// //   float newPrincipal = amount + newInterest;
+
+// //   // returns when the term ends
+// //   if(totalTerms == (years * compoundTerm))
+// //   {
+// //     cout << setw(5) <<totalTerms
+// //      << setw(15) << fixed << setprecision(1) << amount
+// //      << setw(20) << fixed << setprecision(3) << newInterest
+// //      << setw(20) << fixed << setprecision(1) << newPrincipal << endl;
+// //      return;
+// //   }
+
+
+// //    cout << setw(5) <<totalTerms
+// //      << setw(15) << fixed << setprecision(1) << amount
+// //      << setw(20) << fixed << setprecision(3) << newInterest
+// //      << setw(20) << fixed << setprecision(1) << newPrincipal << endl;
+
+// // // calling the function again until the term meets it length
+// //     certificateOfDeposit(newPrincipal,years, interestRate, compoundTerm,(totalTerms +1));
+// // }
+// // int main() {
+// //   try {
+// //       cout << "Please enter the amount you are investing: " << endl;
+// //       float principal;
+// //       cin >> principal;
+// //       if (cin.fail()) 
+// //       {
+// //           throw "Invalid input for principal. Please enter a numeric value.";
+// //       }
+
+// //       cout << "Please enter the number of years you are investing: " << endl;
+// //       int years;
+// //       cin >> years;
+// //       if (cin.fail()) 
+// //       {
+// //           throw "Invalid input for years. Please enter a whole number.";
+// //       }
+
+// //       cout << "Please enter the interest rate: " << endl;
+// //       float interestRate;
+// //       cin >> interestRate;
+// //       if (cin.fail()) 
+// //       {
+// //           throw "Invalid input for interest rate. Please enter a numeric value.";
+// //       }
+
+// //       cout << "Please enter the compounding term (monthly(12), quarterly(4), semi-annually(2) or yearly(1)): " << endl;
+// //       int compoundTerm;
+// //       cin >> compoundTerm;
+// //       if (cin.fail()) 
+// //       {
+// //           throw "Invalid input for compounding term. Please enter a whole number.";
+// //       }
+
+// //       int startTerm = 0;
+
+// //       cout << left << setw(6) << "Term"
+// //             << setw(16) << "Principal"
+// //             << setw(16) << "Interest"
+// //             << setw(16) << "New Principal" << endl;
+
+      
+// //       certificateOfDeposit(principal, years, interestRate / 100, compoundTerm, startTerm);
+
+// //   } catch (const char* error) {
+// //       cerr << "Error: " << error << endl;
+// //       return 1;
+// //   }
 
 // //     return 0;
 // // }
 
-
-// // function that converts kpl to mpg 
-// double kilometersPerLiterToMilesPerGallon(double kpl) 
-// {
-//     const double milesPerGallon = 2.3521458;
-
-//     return kpl * milesPerGallon ;
-// }
-
-// // function that calculates the average miles per hour
-// //  takes in the kilometers 
-// double averageMilesPerHour(double kpl, double time)
-// {
-//     const int hour = 60;
-//     const double miles = 0.62137119;
-
-//     double minutes = time / hour;
-//     double milesPerHour = (kpl * miles)/minutes;
-
-//     return milesPerHour;
-// }
-
-// int main (){
-
-//     cout << "Enter the Number of Liters used: "<<endl;
-//     double liters;
-//     cin >> liters;
-
-//     cout << "Enter the Number of Kilometers Driven: "<<endl;
-//     double km;
-//     cin >> km;
-
-//     cout << "Enter the number of minutes Driven: "<<endl;
-//     double minutes;
-//     cin >> minutes;
-
-//     double averageMiles = averageMilesPerHour(km, minutes);
-//     double milesPG = kilometersPerLiterToMilesPerGallon(liters);
-
-//     cout << "Your Miles per Gallon is "<<fixed<<setprecision(2) << milesPG<< " mpg" << endl;
-//     cout << "Your average MPH is "<<fixed<<setprecision(2) << averageMiles << " mph" << endl;
-
-//     return 0;
-// }
