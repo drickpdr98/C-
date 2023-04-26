@@ -1,53 +1,172 @@
 #include <iostream>
-#include<algorithm>
-#include<math.h>
 #include<time.h>
 
 using namespace std;
 
-///////////////ARRAY2///////////////////////////////////////////
-
-void deleteAt(int arr[], int &size, int index)
+bool hasValue(int arr[], int value, size_t size)
 {
-    for (int i = index; i < size; i++) {
-        arr[i] = arr[i + 1];
+    for (int i = 0; i < size; i++)
+    {
+        if(arr[i] == value)
+            return true;
     }
-    
-    size--;
+    return false;
 }
 
-void print(int arr[],size_t size)
+void randArray(int arr[], size_t size)
 {
-    for( int i = 0; i < size;i++)
-        cout << arr[i] << " ";
-    cout << endl;
+    int ran;
+    for (int i = 0; i < size; i++)
+    {
+        int ran;
+        do 
+        {
+            ran = rand() % (9-0+1)+0; 
+        } while (hasValue(arr, ran, i)); 
+
+        arr[i] = ran;
+    }
 }
 
-void init( int arr[],size_t size)
+void print(int arr[], size_t size)
 {
     for (int i = 0; i < size;i++)
     {
-        arr[i] = rand() % (99 - 1 + 1) + 1;
+        cout << arr[i] << " ";
     }
+    cout << endl;
 }
 
 int main()
 {
-    srand(time(NULL));
+    srand(time(NULL)); 
 
-    const int CAPACITY = 100;
-    int size = 5;
+
+    const int CAPACITY = 10;
 
     int arr[CAPACITY] = {};
 
-    init(arr,size);
-    print(arr, size);
-    deleteAt(arr, size, 2);
-    print(arr, size);
+    randArray(arr, CAPACITY);
 
-
-    return 0;
+    print(arr, CAPACITY);
 }
+
+
+////////////////////////////////////////////////////////////////
+// const int CAPACITY = 5;
+
+// void print( int arr[])
+// {
+//     for (int i = 0; i < CAPACITY;i++)
+//         cout << arr[i] << "  ";
+//     cout << endl;
+// }
+
+// void offset(int arr[])
+// {
+//     int ran = rand() % (5 - (-5) + 1) - 5;
+//     cout << "Rand Value: ";
+//     for (int i = 0; i < CAPACITY; i++)
+//     {
+//         arr[i] +=ran ;
+//         cout<< ran<<" ";
+//     }
+//     cout << endl;
+// }
+
+// void init(int arr[])
+// {
+//     for (int i = 0; i < CAPACITY;i++)
+//     {
+//         arr[i] = rand() % (9 - 1 + 1) + 1;
+//     }
+// }
+
+// int main()
+// {
+//     srand(time(NULL));
+//     int arr[CAPACITY] = {};
+
+//     init(arr);
+//     cout << "Original:    ";
+//     print(arr);
+//     offset(arr);
+//      cout << "Offset:      ";
+//     print(arr);
+//     return 0;
+// }
+////////////////////////////////////////////////////////////////
+// const int ROWS = 8;
+// const int COLUMNS = 8;
+
+// void print(int arr[])
+// {
+//     int count = 0;
+//     for (int i = 0; i < ROWS; i++)
+//     {
+//         for (int j = 0; j < COLUMNS;j++)
+//         {
+//             if(arr[i]==j)
+//                 cout << "Q"
+//                      << " ";
+//             else
+//                 cout << "."
+//                      << " ";
+//             count++;
+//         }
+//         cout << endl;
+//     }
+// }
+
+// int main()
+// {
+//     int arr[ROWS] = {0, 4, 2, 5, 6, 7, 1, 3};
+//     print(arr);
+//     return 0;
+// }
+///////////////////////////////////////////////////
+
+// void deleteAt(int arr[], int &size, int index)
+// {
+//     for (int i = index; i < size; i++) {
+//         arr[i] = arr[i + 1];
+//     }
+    
+//     size--;
+// }
+
+// void print(int arr[],size_t size)
+// {
+//     for( int i = 0; i < size;i++)
+//         cout << arr[i] << " ";
+//     cout << endl;
+// }
+
+// void init( int arr[],size_t size)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         arr[i] = rand() % (99 - 1 + 1) + 1;
+//     }
+// }
+
+// int main()
+// {
+//     srand(time(NULL));
+
+//     const int CAPACITY = 100;
+//     int size = 5;
+
+//     int arr[CAPACITY] = {};
+
+//     init(arr,size);
+//     print(arr, size);
+//     deleteAt(arr, size, 2);
+//     print(arr, size);
+
+
+//     return 0;
+// }
 
 // const int rows = 3;
 // const int  columns = 4;
