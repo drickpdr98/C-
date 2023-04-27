@@ -1,55 +1,157 @@
 #include <iostream>
 #include<time.h>
+#include<cctype>
 
 using namespace std;
+// Create a function, named load_encrypt_array, that loads an 26 Capacity Array, named encrypt_offset, with Randon Numbers from 0 to 100.
 
-bool hasValue(int arr[], int value, size_t size)
+void load_encrypt_array(int arr[], size_t size)
 {
+    cout << "Encrypted Offset: " << endl;
     for (int i = 0; i < size; i++)
     {
-        if(arr[i] == value)
-            return true;
-    }
-    return false;
-}
-
-void randArray(int arr[], size_t size)
-{
-    int ran;
-    for (int i = 0; i < size; i++)
-    {
-        int ran;
-        do 
-        {
-            ran = rand() % (9-0+1)+0; 
-        } while (hasValue(arr, ran, i)); 
-
-        arr[i] = ran;
-    }
-}
-
-void print(int arr[], size_t size)
-{
-    for (int i = 0; i < size;i++)
-    {
+        arr[i] = rand() % (100 - 0 + 1) + 0;
         cout << arr[i] << " ";
     }
-    cout << endl;
+}
+
+// Create another function, named encrypt_string, that passes the preceeding array,a All Upper Case input string and a Output String.
+
+void encrypt_string(string str, int encrypt_offset[])
+{
+    string Output_String;
+
+    cout << "Encrypted String: ";
+
+    for (int i = 0; i < str.length(); i = i + 1)
+    {
+        //convert if not uppercase
+        toupper(str[i]);
+
+        char encrypt_Char = static_cast<char>((static_cast<int>(str[i]) + encrypt_offset[static_cast<int>(str[i]) - 65]) % 26 + 65);
+        Output_String += encrypt_Char;
+	}
+
+    cout << Output_String<< endl;
+
 }
 
 int main()
 {
-    srand(time(NULL)); 
+    srand(time(NULL));
+    const int CAPACITY = 26;
 
+    cout << "Enter a string to encrypt > " << endl;
+    string str;
+    cin >> str;
 
-    const int CAPACITY = 10;
+    cout << endl;
 
-    int arr[CAPACITY] = {};
+    int encrypt_offset[CAPACITY] = {};
 
-    randArray(arr, CAPACITY);
+    cout << "Original String: " << str << endl;
+  
+    encrypt_string(str, encrypt_offset);
 
-    print(arr, CAPACITY);
+    load_encrypt_array(encrypt_offset, CAPACITY);
+    
+    return 0;
 }
+
+// void printGreaterThanX(int arr[],int value, size_t size)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         if(arr[i]>value)
+//             cout << arr[i] << " ";
+        
+//     }
+// }
+
+// int main()
+// {
+//     const int SIZE = 7;
+//     int array[SIZE] = {7, 34, 1, 6, 27, 8, 2};
+
+//     printGreaterThanX(array, 10, SIZE);
+
+//     return 0;
+// }
+
+// void print(char arr[], size_t size)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+// }
+// void init(char arr[], size_t size)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         arr[i] = 65+i;
+//     }
+// }
+
+// int main()
+// {
+//     const int CAPACITY = 3;
+
+//     //implicit casting
+//     char arr[CAPACITY] = {};
+
+//     init(arr, CAPACITY);
+//     print(arr, CAPACITY);
+
+//     return 0;
+// }
+// bool hasValue(int arr[], int value, size_t size)
+// {
+//     for (int i = 0; i < size; i++)
+//     {
+//         if(arr[i] == value)
+//             return true;
+//     }
+//     return false;
+// }
+
+// void randArray(int arr[], size_t size)
+// {
+//     int ran;
+//     for (int i = 0; i < size; i++)
+//     {
+//         int ran;
+//         do 
+//         {
+//             ran = rand() % (9-0+1)+0; 
+//         } while (hasValue(arr, ran, i)); 
+
+//         arr[i] = ran;
+//     }
+// }
+
+// void print(int arr[], size_t size)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+
+// int main()
+// {
+//     srand(time(NULL)); 
+
+
+//     const int CAPACITY = 10;
+
+//     int arr[CAPACITY] = {};
+
+//     randArray(arr, CAPACITY);
+
+//     print(arr, CAPACITY);
+// }
 
 
 ////////////////////////////////////////////////////////////////
