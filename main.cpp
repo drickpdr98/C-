@@ -1,26 +1,68 @@
 #include <iostream>
 #include<time.h>
 #include <fstream>
+#include <iomanip>
 #include <string>
 
 using namespace std;
 
+
+const int numAstros = 7;
+const int numFields = 3;
+
 int main() {
-    ifstream input("input.txt");  
 
-    ofstream output("output.txt"); 
+    string astronautinfo[numAstros][numFields]={};
+    int astronautorder[numAstros]={};
 
-    string record;
+    ifstream input("input.txt");
 
-    while (getline(input, record)) { 
-        output << record << endl; 
+    for (int i = 0; i < numAstros; i++) {
+        getline(input, astronautinfo[i][0], '|');
+        getline(input, astronautinfo[i][1], '|');
+        getline(input, astronautinfo[i][2]);
+
+        astronautorder[i] = stoi(astronautinfo[i][2]);
+    }
+    
+    cout << left << setw(20) << "Order" << left << setw(25) 
+         << "Astronaut" << left << "State" << endl;
+         
+    cout << endl;
+
+    for (int i = 0; i <=numAstros; i++) {
+        for (int j = 0; j < numAstros; j++) {
+        if (astronautorder[j] == i) {
+            cout << left << setw(20) << i << left 
+            << setw(25) << astronautinfo[j][0] << left << astronautinfo[j][1] << endl;
+            break;
+        }
     }
 
-    input.close();
-    output.close();
+}
+    input.close();  
 
     return 0;
 }
+
+
+
+// int main() {
+//     ifstream input("input.txt");  
+
+//     ofstream output("output.txt"); 
+
+//     string record;
+
+//     while (getline(input, record)) { 
+//         output << record << endl; 
+//     }
+
+//     input.close();
+//     output.close();
+
+//     return 0;
+// }
 
 // // Create a function, named load_encrypt_array, that loads an 26 Capacity Array, named encrypt_offset, with Randon Numbers from 0 to 100.
 
