@@ -7,43 +7,109 @@
 using namespace std;
 
 
-const int numAstros = 7;
-const int numFields = 3;
 
-int main() {
+int main()
+{
 
-    string astronautinfo[numAstros][numFields]={};
-    int astronautorder[numAstros]={};
+// a) Create a string of lowercase letters, alphastr, that contains: "a,d,a,l,w,f,g,g". 
+    string alphastr = "a,d,a,l,w,f,g,g";
 
-    ifstream input("input.txt");
+// b) Create an integer array, alphacnt, that will be used to count each occurrence of a letter.
+    int alphacnt = {};
 
-    for (int i = 0; i < numAstros; i++) {
-        getline(input, astronautinfo[i][0], '|');
-        getline(input, astronautinfo[i][1], '|');
-        getline(input, astronautinfo[i][2]);
+// c) Parse out the string using the parser istringstream and using static_casting count the number of times a letter appears in the alphacnt array.  
 
-        astronautorder[i] = stoi(astronautinfo[i][2]);
-    }
-    
-    cout << left << setw(20) << "Order" << left << setw(25) 
-         << "Astronaut" << left << "State" << endl;
-         
-    cout << endl;
-
-    for (int i = 0; i <=numAstros; i++) {
-        for (int j = 0; j < numAstros; j++) {
-        if (astronautorder[j] == i) {
-            cout << left << setw(20) << i << left 
-            << setw(25) << astronautinfo[j][0] << left << astronautinfo[j][1] << endl;
-            break;
-        }
-    }
-
-}
-    input.close();  
 
     return 0;
 }
+
+// // a)	Create a loadArray Function that loads an array of random numbers between 1 and 150. Pass to the function as parameter the Array, the capacity of the array and the number of values needed.
+
+// void loadArray(int arr[],size_t size, int numberOfValues)
+// {
+//     for (int i = 0; i < size; i++)
+//     {
+//         arr[i] = rand() % (150 - 1 + 1) + 1;
+
+//     }
+// }
+
+// // b)	Create a printRange function which prints all values of the array between A and B inclusive.  The function parameters should be the array, the number of elements and the two values (low value and high value) to output on.
+
+// void printRange(int arr[], size_t size, int low, int high)
+// {
+//     for (int i = 0; i < size;i++)
+//     {
+//         if(arr[i]>=low && arr[i]<=high)
+//         {
+//             cout << arr[i] << " ";
+//         }
+//     }
+// }
+// // c)	In main code create a random number between 10 and 30 to determine how many random numbers are needed (num_Elements) in the array. Also in main code accept the range’s low and high value to output on.  Call the init function and the print function.
+// int main()
+// {
+   
+//     srand(time(NULL));
+
+//     const int CAPACITY = 20;
+
+//     int arr[] = {};
+
+//     int num_Elements = rand() % (30 - 10 + 1) + 10;
+
+//     cout << "Please enter a low value: " << endl;
+//     int low;
+//     cin >> low;
+
+//     cout << "Please enter a high value: " << endl;
+//     int high;
+//     cin >> high;
+
+//     loadArray(arr, CAPACITY,num_Elements);
+//     printRange(arr, CAPACITY, low, high);
+
+//     return 0;
+
+// }
+
+// const int numAstros = 7;
+// const int numFields = 3;
+
+// int main() {
+
+//     string astronautinfo[numAstros][numFields]={};
+//     int astronautorder[numAstros]={};
+
+//     ifstream input("input.txt");
+
+//     for (int i = 0; i < numAstros; i++) {
+//         getline(input, astronautinfo[i][0], '|');
+//         getline(input, astronautinfo[i][1], '|');
+//         getline(input, astronautinfo[i][2]);
+
+//         astronautorder[i] = stoi(astronautinfo[i][2]);
+//     }
+    
+//     cout << left << setw(20) << "Order" << left << setw(25) 
+//          << "Astronaut" << left << "State" << endl;
+         
+//     cout << endl;
+
+//     for (int i = 0; i <=numAstros; i++) {
+//         for (int j = 0; j < numAstros; j++) {
+//         if (astronautorder[j] == i) {
+//             cout << left << setw(20) << i << left 
+//             << setw(25) << astronautinfo[j][0] << left << astronautinfo[j][1] << endl;
+//             break;
+//         }
+//     }
+
+// }
+//     input.close();  
+
+//     return 0;
+// }
 
 
 
