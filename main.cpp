@@ -3,25 +3,189 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 using namespace std;
-
-
-
-int main()
+bool rightDiagonalWinGame(int GameBoard[][CCAPACITY], int rcapacity, int ccapacity, int rowMove, int colMove)
 {
+    for (int i = 0; i < rcapacity; i++) // Starting from the fourth row
+    {
+        for (int j = 0; j < ccapacity; j++) // Looping through each column
+        {
+            if (GameBoard[i][j] == GameBoard[rowMove][colMove] && // Check if current position matches the specified move
+                GameBoard[i - 1][j + 1] == GameBoard[rowMove][colMove] && // Check the diagonal position up and to the right
+                GameBoard[i - 3][j + 3] == GameBoard[rowMove][colMove]) // Check the diagonal position three steps up and to the right
+            {
+                return true; // Diagonal win condition found
+            }
+            else
+            {
+                return false; // No diagonal win condition found
+            }
+        }
+    }
+    
+    return false; // No diagonal win condition found
+}
 
-// a) Create a string of lowercase letters, alphastr, that contains: "a,d,a,l,w,f,g,g". 
-    string alphastr = "a,d,a,l,w,f,g,g";
 
-// b) Create an integer array, alphacnt, that will be used to count each occurrence of a letter.
-    int alphacnt = {};
 
-// c) Parse out the string using the parser istringstream and using static_casting count the number of times a letter appears in the alphacnt array.  
+// const int numEmployees = 4;
+// const int numFields = 3;
 
+// // create a parse function and pass by const ref
+// void parseFields(const string& line, string empInfo[][numFields], int empSalary[]) {
+//     istringstream stringFile(line);
+//     string field;
+
+//     for (int i = 0; i < numFields; i++) {
+//         getline(stringFile, field, '\t');
+//         if (i == numFields - 1) {
+//             empSalary[i] = stoi(field);
+//         } else {
+//             empInfo[i][i] = field;
+//         }
+//     }
+// }
+
+// void increaseSalaries(int empSalary[]) {
+//     for (int i = 0; i < numEmployees; i++) {
+//         empSalary[i] *= 1.1; // Increase salary by 10%
+//     }
+// }
+
+// void printEmployeeInfo(const string empInfo[][numFields], const int empSalary[]) {
+//     cout << "Level\t\tEmployee Name\t\tSalary" << endl;
+//     for (int i = 0; i < numEmployees; i++) {
+//         cout << empInfo[i][0] << "\t\t" << empInfo[i][1] << "\t\t" << empSalary[i] << endl;
+//     }
+// }
+
+// int main() {
+//     try {
+//         string empInfo[numEmployees][numFields];
+//         int empSalary[numEmployees];
+
+//         ifstream inputFile("employee.txt");
+//         if (inputFile.is_open()) {
+//             string line;
+//             int employeeIndex = 0;
+
+//             while (getline(inputFile, line)) {
+//                 parseFields(line, empInfo, empSalary);
+//                 employeeIndex++;
+//             }
+
+//             inputFile.close();
+
+//             increaseSalaries(empSalary);
+//             printEmployeeInfo(empInfo, empSalary);
+//         } else {
+//             throw string("Failed to open employee.txt for reading.");
+//         }
+//     } catch (const string& error) {
+//         cerr << error << endl;
+//     }
+
+//     return 0;
+// }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+int main() {
+    // Step a: Read input file data into address.txt
+    try{
+        ifstream input("address.txt");
+        ofstream address("address2.txt");
+
+    if (input.is_open()) {
+        
+        if (address.is_open()) {
+            string line;
+            while (getline(input, line,'!')) {
+                address << line << endl;
+            }
+            address.close();
+        } else {
+            throw "Failed to open address.txt for writing.";
+        }
+        input.close();
+    } else {
+        throw "Failed to open input.txt for reading.";
+    }}
+    catch(string &error)
+    {
+    cerr << error << endl;
+    }
+
+    // Steps b, c, and d are the same as in the previous code
+    // ...
 
     return 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// int main() {
+//    try{ // a) Paste input file data (specified below) into a file named input.txt.
+//     // (Manually create the input.txt file and paste the data into it)
+
+//     // b) Create a blank text file named output.txt.
+//     // (The code will create the output.txt file)
+
+//     // c) Read data from input.txt into the program one line at a time.
+//    ifstream input("input2.txt");
+//    ofstream output("output2.txt");
+
+//     if (input.is_open() && output.is_open()) {
+//        string line;
+//         while (getline(input, line)) {
+//             // d) Use string concatenation to modify the line such that it begins with a “$”, and ends with a “.00”.
+//            string line = "$" + line + ".00";
+
+//             // e) Output the modified line to output.txt.
+//             output << line <<endl;
+//         }
+//         input.close();
+//         output.close();
+//     } else {
+//         throw "Unable to open input or output file.";
+//     }}
+//     catch(string &error)
+//     {
+//     cerr << error << endl;
+//     }
+
+//     return 0;
+// }
+
+//////////////////////////////////////////////////////////////////////////////
+// int main() {
+//     // a) Create a string of lowercase letters, alphastr, that contains: "a,d,a,l,w,f,g,g".
+//    string alphastr = "adalgfg";
+
+//     // b) Create an integer array, alphacnt, that will be used to count each occurrence of a letter.
+//    vector<int> alphacnt(26, 0);
+
+//     // c) Count the number of times a letter appears in the alphacnt array.
+//     for (char ch : alphastr) {
+//         alphacnt[ch - 'a']++;
+//     }
+
+//     // d) Output the lowercase letter and the letter count for any letter with a count > 0.
+//     for (int i = 0; i < 26; i++) {
+//         if (alphacnt[i] > 0) {
+//             char letter = 'a' + i;
+//            cout << "Letter " << letter << "  Count " << alphacnt[i] <<endl;
+//         }
+//     }
+
+//     return 0;
+// }
+///////////////////////////////////////////////////////////////////////////////////////
 
 // // a)	Create a loadArray Function that loads an array of random numbers between 1 and 150. Pass to the function as parameter the Array, the capacity of the array and the number of values needed.
 
